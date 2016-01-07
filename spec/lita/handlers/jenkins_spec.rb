@@ -103,28 +103,28 @@ describe Lita::Handlers::Jenkins, lita_handler: true do
       allow(response).to receive(:status).and_return(201)
       allow(response).to receive(:body).and_return(api_response)
       send_command('jenkins b 2')
-      expect(replies.last).to eq("(201) Build started for deploy /job/deploy")
+      expect(replies.last).to eq("(201) Build started for deploy")
     end
 
     it 'build job name' do
       allow(response).to receive(:status).and_return(201)
       allow(response).to receive(:body).and_return(api_response)
       send_command('jenkins b deploy')
-      expect(replies.last).to eq("(201) Build started for deploy /job/deploy")
+      expect(replies.last).to eq("(201) Build started for deploy")
     end
 
     it 'build job underscored name' do
       allow(response).to receive(:status).and_return(201)
       allow(response).to receive(:body).and_return(api_response)
       send_command('jenkins b chef_converge')
-      expect(replies.last).to eq("(201) Build started for chef_converge /job/chef_converge")
+      expect(replies.last).to eq("(201) Build started for chef_converge")
     end
 
     it 'build job hyphenated name' do
       allow(response).to receive(:status).and_return(201)
       allow(response).to receive(:body).and_return(api_response)
       send_command('jenkins b build-all')
-      expect(replies.last).to eq("(201) Build started for build-all /job/build-all")
+      expect(replies.last).to eq("(201) Build started for build-all")
     end
 
     it 'build job bad id' do
@@ -154,14 +154,14 @@ describe Lita::Handlers::Jenkins, lita_handler: true do
           allow(response).to receive(:status).and_return(201)
           allow(response).to receive(:body).and_return(api_response)
           send_command('jenkins b 2, PARAM=value')
-          expect(replies.last).to eq("(201) Build started for deploy /job/deploy, Params: 'PARAM=value'")
+          expect(replies.last).to eq("(201) Build started for deploy, Params: 'PARAM=value'")
         end
 
         it 'builds job name' do
           allow(response).to receive(:status).and_return(201)
           allow(response).to receive(:body).and_return(api_response)
           send_command('jenkins b deploy, PARAM=value')
-          expect(replies.last).to eq("(201) Build started for deploy /job/deploy, Params: 'PARAM=value'")
+          expect(replies.last).to eq("(201) Build started for deploy, Params: 'PARAM=value'")
         end
       end
     end

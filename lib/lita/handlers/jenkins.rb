@@ -38,7 +38,7 @@ module Lita
         end
 
         if http_resp.status == 201
-          reply_text = "(#{http_resp.status}) Build started for #{job['name']} #{named_job_url}"
+          reply_text = "(#{http_resp.status}) Build started for #{job['name']}"
           reply_text << ", Params: '#{input_params}'" if input_params
           response.reply reply_text
         elsif http_resp.status == 400
